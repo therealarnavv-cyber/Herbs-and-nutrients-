@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Green Handful – Herbs & Nutrition Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f5ec;--surf:#fbfdf8;--ink:#1c2a20;--mute:#5a6b5e;--moss:#35643f;--moss2:#dbe8d3;--gold:#c98a0b;--lav:#6d5ca0;--line:#cfdac8;--r:14px;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a14;--surf:#1a251d;--ink:#e6efe2;--mute:#9db1a1;--moss:#8fc79a;--moss2:#243629;--gold:#e5b043;--lav:#b3a5e0;--line:#2f4034}}
+:root[data-theme="dark"]{--bg:#121a14;--surf:#1a251d;--ink:#e6efe2;--mute:#9db1a1;--moss:#8fc79a;--moss2:#243629;--gold:#e5b043;--lav:#b3a5e0;--line:#2f4034}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:'Young Serif',Georgia,serif;font-weight:400;line-height:1.15;margin:0}
+a{color:var(--moss)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:18px;align-items:center;overflow-x:auto;height:52px;white-space:nowrap}
+nav b{font-family:'Young Serif',serif;font-weight:400;color:var(--moss);margin-right:auto}
+nav a{text-decoration:none;color:var(--mute);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+header.hero{padding:56px 0 28px}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);max-width:15ch}
+.hero p{max-width:55ch;color:var(--mute);font-size:1.1rem;margin:16px 0 24px}
+.strip{display:flex;flex-wrap:wrap;gap:8px}
+.strip button{font:inherit;border:1px solid var(--line);background:var(--surf);color:var(--ink);padding:6px 14px;border-radius:99px;cursor:pointer}
+.strip button:hover{background:var(--moss2)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:32px}
+.stats div{border-left:3px solid var(--gold);padding:2px 12px;color:var(--mute);font-size:.92rem}
+.stats strong{display:block;color:var(--ink);font-size:1.05rem}
+section{padding:44px 0;border-top:1px solid var(--line)}
+section h2{font-size:1.9rem;margin-bottom:6px}
+.lead{color:var(--mute);max-width:60ch;margin:0 0 20px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+input[type=search]{font:inherit;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--surf);color:var(--ink);min-width:220px;flex:1;max-width:320px}
+.chip{font:inherit;padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--moss);color:var(--bg);border-color:var(--moss)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{text-align:left;font:inherit;background:var(--surf);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;cursor:pointer;display:block;width:100%}
+.card:hover{border-color:var(--moss)}
+.card[aria-pressed=true]{border:2px solid var(--moss);background:var(--moss2)}
+.card h3{font-size:1.1rem}.card small{color:var(--mute);font-style:italic;display:block}
+.card .kc{font-size:.82rem;color:var(--mute);margin-top:6px}
+#detail{margin-top:20px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:720px){#detail{grid-template-columns:1fr;padding:18px}}
+#detail h3{font-size:1.7rem}
+.sci{color:var(--mute);font-style:italic;margin:2px 0 12px}
+.tag{display:inline-block;font-size:.8rem;background:var(--moss2);color:var(--ink);border-radius:6px;padding:1px 8px;margin:0 4px 4px 0}
+.k{font-weight:700;margin:14px 0 2px;color:var(--moss)}
+.warn{border-left:3px solid var(--lav);padding-left:10px;color:var(--ink)}
+.srv{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.srv input{flex:1;min-width:120px;accent-color:var(--moss)}
+.row{display:grid;grid-template-columns:96px 1fr 84px;gap:10px;align-items:center;margin:9px 0;font-size:.93rem}
+.bar{height:10px;border-radius:6px;background:var(--moss2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--moss);transition:width .25s}
+.row span:last-child{text-align:right;color:var(--mute);font-size:.85rem}
+.note{font-size:.82rem;color:var(--mute);margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--mute);font-weight:500;cursor:pointer;white-space:nowrap}
+th:hover{color:var(--ink)}
+.scroll{overflow-x:auto;background:var(--surf);border:1px solid var(--line);border-radius:var(--r)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.box h3{font-size:1.2rem;margin-bottom:6px}
+.box p{margin:6px 0;color:var(--mute);font-size:.95rem}
+ul.plain{padding-left:18px;margin:8px 0}ul.plain li{margin:6px 0}
+.ft{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Green Handful</b><a href="#explore">Explore</a><a href="#compare">Compare</a><a href="#pair">Pair</a><a href="#teas">Teas</a><a href="#grow">Grow</a><a href="#safety">Safety</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<h1>What is really in a handful of herbs?</h1>
+<p>Fresh herbs add flavour for almost no calories, and some carry surprising amounts of vitamin K, vitamin C and iron. Pick an herb to see its nutrition, uses and cautions.</p>
+<div class="strip" id="strip" aria-label="Quick pick"></div>
+<div class="stats">
+<div><strong>Parsley</strong>Vitamin K: over 10× the daily need per 100 g</div>
+<div><strong>Thyme</strong>Vitamin C: about 180% of daily value per 100 g</div>
+<div><strong>Basil</strong>Only about 23 kcal per 100 g</div>
+<div><strong>Ginger</strong>A root used as both food and remedy</div>
+</div>
+</div></header>
+
+<section id="explore"><div class="wrap">
+<h2>Explore herbs</h2>
+<p class="lead">Search or filter, then choose a serving size. A normal serving of fresh herbs is 5–15 g, so real-life amounts are smaller than the per-100 g figures.</p>
+<div class="tools">
+<input type="search" id="q" placeholder="Search herbs…" aria-label="Search herbs">
+<span id="chips" style="display:flex;gap:8px;flex-wrap:wrap"></span>
+</div>
+<div class="grid" id="grid"></div>
+<article id="detail" aria-live="polite"></article>
+</div></section>
+
+<section id="compare"><div class="wrap">
+<h2>Compare per 100 g</h2>
+<p class="lead">Select a column heading to sort. Values are approximate, for fresh herbs, based on USDA-style reference data.</p>
+<div class="scroll"><table id="tbl"></table></div>
+<p class="note">%DV uses a 2,000 kcal diet. Where an herb has no reliable figure, it is shown as “–”.</p>
+</div></section>
+
+<section id="pair"><div class="wrap">
+<h2>What are you cooking?</h2>
+<p class="lead">Choose a dish for herbs that usually go with it.</p>
+<div class="tools" id="dishes"></div>
+<div class="strip" id="pairout"></div>
+</div></section>
+
+<section id="teas"><div class="wrap">
+<h2>Simple infusions</h2>
+<p class="lead">Traditional home preparations. They are comfort drinks, not treatments.</p>
+<div class="two">
+<div class="box"><h3>Fresh mint tea</h3><p>A handful of leaves, 250 ml hot water, steep 5 minutes. Often used after meals.</p></div>
+<div class="box"><h3>Ginger–tulsi kadha</h3><p>Sliced ginger and 8–10 tulsi leaves simmered in water for 5–10 minutes. A common household drink in India. Add jaggery or honey if you like.</p></div>
+<div class="box"><h3>Thyme and honey</h3><p>A few sprigs steeped 10 minutes with a spoon of honey. Traditionally taken for a scratchy throat. Do not give honey to children under 1 year.</p></div>
+<div class="box"><h3>Rosemary water</h3><p>One sprig steeped in hot water for 10 minutes. Mild, resinous and best in small quantities.</p></div>
+</div>
+</div></section>
+
+<section id="grow"><div class="wrap">
+<h2>Grow your own</h2>
+<p class="lead">Easy starters for a sunny kitchen window or balcony.</p>
+<div class="two">
+<div class="box"><h3>Easiest</h3><ul class="plain"><li>Mint: grow in its own pot, it spreads</li><li>Tulsi: 4–6 hours of sun, pinch flower buds</li><li>Curry leaf: slow but long-lived</li></ul></div>
+<div class="box"><h3>Need care</h3><ul class="plain"><li>Basil: warm, regular water, harvest the tips</li><li>Coriander: sow fresh every 3–4 weeks</li><li>Dill: sow directly, dislikes transplanting</li></ul></div>
+<div class="box"><h3>Harvest rules</h3><ul class="plain"><li>Cut in the morning</li><li>Never take more than a third at once</li><li>Rosemary and thyme prefer drier soil</li></ul></div>
+</div>
+</div></section>
+
+<section id="safety"><div class="wrap">
+<h2>Safety and interactions</h2>
+<div class="two">
+<div class="box"><h3>Blood thinners</h3><p>Parsley, basil and coriander are rich in vitamin K. If you take warfarin, keep your intake steady and ask your doctor.</p></div>
+<div class="box"><h3>Pregnancy and breastfeeding</h3><p>Food amounts are generally fine. Concentrated teas, extracts and supplements of herbs such as sage, parsley and tulsi need medical advice first.</p></div>
+<div class="box"><h3>Medicines and surgery</h3><p>Garlic and ginger in large doses may affect bleeding. Mention herbal products to your doctor before surgery.</p></div>
+<div class="box"><h3>Allergies</h3><p>Herbs in the mint and carrot families can cause reactions in some people. Stop if you notice itching or swelling.</p></div>
+</div>
+</div></section>
+
+<footer class="ft"><div class="wrap">This site is for general information and is not medical advice. Nutrition figures are approximate and vary by variety, season and growing conditions. Speak to a doctor or dietitian about health conditions.</div></footer>
+
+<script>
+const DV={c:90,k:120,fe:18,ca:1300,f:28,p:50};
+// name, scientific, tags, [kcal,protein,fibre,vitC,vitK,iron,calcium], benefit, uses, caution
+const H=[
+["Basil","Ocimum basilicum",["Culinary"],[23,3.2,1.6,18,415,3.2,177],"A good source of vitamin K, with plant compounds such as eugenol.","Pesto, tomato dishes, salads, pizza. Add at the end of cooking.","High in vitamin K, relevant if you take warfarin."],
+["Parsley","Petroselinum crispum",["Culinary"],[36,3,3.3,133,1640,6.2,138],"Very high in vitamins K and C, with useful iron.","Chimichurri, tabbouleh, soups, garnish. Eat the stems too.","Very high in vitamin K. Large medicinal doses are not advised in pregnancy."],
+["Coriander (cilantro)","Coriandrum sativum",["Culinary","Indian"],[23,2.1,2.8,27,310,1.8,67],"Provides vitamins A, C and K. The seeds are used as a digestive spice.","Chutneys, dal, curries, salsa. Use stems for flavour too.","Some people find it tastes soapy, which is genetic."],
+["Mint","Mentha spp.",["Culinary","Tea","Indian"],[70,3.8,8,32,230,5.1,243],"Traditionally used after meals. Menthol gives the cooling sensation.","Raita, chutney, tea, desserts, drinks.","Mint tea may worsen acid reflux in some people."],
+["Rosemary","Salvia rosmarinus",["Culinary","Tea"],[131,3.3,14.1,22,109,6.7,317],"Aromatic oils and antioxidants such as rosmarinic acid.","Roast potatoes, breads, grilled meats. Chop finely, it is strong.","Avoid medicinal-strength doses in pregnancy."],
+["Thyme","Thymus vulgaris",["Culinary","Tea"],[101,5.6,14,160,171,17.5,405],"Notably high in vitamin C and iron per 100 g. Contains thymol.","Stews, roasted vegetables, stocks, marinades.","Per-serving amounts are small, so do not rely on it for iron."],
+["Dill","Anethum graveolens",["Culinary"],[43,3.5,2.1,85,null,6.6,208],"Provides vitamin C, manganese and some calcium.","Fish, yogurt dips, pickles, potato salad.","Generally safe in food amounts."],
+["Chives","Allium schoenoprasum",["Culinary"],[30,3.3,2.5,58,213,1.6,92],"Mild onion flavour with vitamin K and C.","Omelettes, baked potatoes, cream cheese, soups.","May upset very sensitive stomachs."],
+["Ginger","Zingiber officinale",["Culinary","Tea","Indian","Medicinal"],[80,1.8,2,5,0.1,0.6,16],"Traditionally used for nausea and digestion. Gingerols give the heat.","Chai, curries, stir-fries, kadha, pickles.","Large doses can cause heartburn and may affect bleeding."],
+["Garlic","Allium sativum",["Culinary","Indian","Medicinal"],[149,6.4,2.1,31,1.7,1.7,181],"Rich in sulphur compounds such as allicin, released when crushed.","Tadka, sauces, roasts. Rest crushed garlic 10 minutes before cooking.","May interact with blood thinners in supplement doses."],
+["Tulsi (holy basil)","Ocimum tenuiflorum",["Tea","Indian","Medicinal"],null,"Used in Ayurveda for centuries. Research is still limited, so treat claims cautiously.","Tea, kadha, offering leaves fresh in water.","Ask a doctor before taking concentrated forms in pregnancy or with diabetes medicines."],
+["Curry leaves","Murraya koenigii",["Culinary","Indian"],null,"Aromatic leaves used in South Indian cooking. They contain iron and calcium, but exact amounts vary.","Tadka for dal, upma, sambar, chutneys.","Eat the leaves in food, no need to discard them."]
+];
+const NU=[["Energy",0,"kcal",0],["Protein",1,"g",DV.p],["Fibre",2,"g",DV.f],["Vitamin C",3,"mg",DV.c],["Vitamin K",4,"µg",DV.k],["Iron",5,"mg",DV.fe],["Calcium",6,"mg",DV.ca]];
+const DISH={"Pasta & tomato":[0,1,7],"Roasts & grills":[4,5,9],"Dal & curry":[2,11,8,9],"Salads & yogurt":[3,6,7,1],"Fish & eggs":[6,1,7],"Chai & teas":[8,10,3]};
+let sel=0,cat="All",g=10;
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<]/g,c=>({"&":"&amp;","<":"&lt;"}[c]));
+const fmt=v=>v==null?"–":v>=100?Math.round(v):v>=10?v.toFixed(0):v.toFixed(1);
+function strip(){ $("#strip").innerHTML=H.map((h,i)=>`<button data-i="${i}">${h[0].split(" ")[0]}</button>`).join(""); }
+function chips(){ $("#chips").innerHTML=["All","Culinary","Indian","Tea","Medicinal"].map(c=>`<button class="chip" aria-pressed="${c==cat}" data-c="${c}">${c}</button>`).join(""); }
+function grid(){
+ const q=$("#q").value.toLowerCase();
+ const list=H.map((h,i)=>[h,i]).filter(([h])=>(cat=="All"||h[2].includes(cat))&&(h[0]+h[1]).toLowerCase().includes(q));
+ $("#grid").innerHTML=list.length?list.map(([h,i])=>`<button class="card" data-i="${i}" aria-pressed="${i==sel}"><h3>${h[0]}</h3><small>${h[1]}</small><div class="kc">${h[3]?h[3][0]+" kcal / 100 g":"data varies"}</div></button>`).join(""):`<p>No herbs match. Clear the search or choose “All”.</p>`;
+}
+function detail(){
+ const h=H[sel];
+ let n;
+ if(h[3]){ n=`<div class="srv"><label for="g">Serving</label><input type="range" id="g" min="1" max="100" value="${g}"><b id="gv">${g} g</b></div>`+NU.map(([l,k,u,d])=>{const v=h[3][k]==null?null:h[3][k]*g/100;const p=d&&v!=null?v/d*100:null;return `<div class="row"><span>${l}</span><div class="bar"><i style="width:${p==null?0:Math.min(p,100)}%"></i></div><span>${fmt(v)} ${u}${p!=null?" · "+Math.round(p)+"%":""}</span></div>`}).join("")+`<p class="note">Bars show % of daily value for your serving. Per 100 g data, approximate.</p>`;}
+ else n=`<p>Reliable per-100 g nutrition data is not available for ${h[0]}. It is mostly used in small amounts for flavour and tradition.</p>`;
+ $("#detail").innerHTML=`<div><h3>${h[0]}</h3><div class="sci">${h[1]}</div>${h[2].map(t=>`<span class="tag">${t}</span>`).join("")}<div class="k">Why it matters</div>${h[4]}<div class="k">How to use</div>${h[5]}<div class="k">Caution</div><div class="warn">${h[6]}</div></div><div><b>Nutrition</b><div style="height:8px"></div>${n}</div>`;
+ const r=$("#g"); if(r) r.oninput=e=>{g=+e.target.value;detail()};
+}
+function pick(i,scroll){sel=i;grid();detail();if(scroll)$("#detail").scrollIntoView({behavior:"smooth",block:"nearest"})}
+let sk=0,asc=true;
+function table(){
+ const rows=H.map((h,i)=>({i,h})).filter(x=>x.h[3]);
+ rows.sort((a,b)=>sk<0?a.h[0].localeCompare(b.h[0])*(asc?1:-1):((a.h[3][sk]??-1)-(b.h[3][sk]??-1))*(asc?1:-1));
+ $("#tbl").innerHTML=`<tr><th data-s="-1">Herb</th>${NU.map(([l,k,u])=>`<th data-s="${k}">${l} (${u})</th>`).join("")}</tr>`+rows.map(({h,i})=>`<tr><td><a href="#explore" data-i="${i}">${h[0]}</a></td>${NU.map(([l,k,u,d])=>`<td>${fmt(h[3][k])}${d&&h[3][k]!=null?` <small style="color:var(--mute)">${Math.round(h[3][k]/d*100)}%</small>`:""}</td>`).join("")}</tr>`).join("");
+}
+function dishes(){ $("#dishes").innerHTML=Object.keys(DISH).map(d=>`<button class="chip" aria-pressed="false" data-d="${d}">${d}</button>`).join(""); }
+document.addEventListener("click",e=>{
+ const t=e.target.closest("[data-i],[data-c],[data-s],[data-d]"); if(!t) return;
+ const d=t.dataset;
+ if(d.i!=null){ if(t.tagName=="A")e.preventDefault(); pick(+d.i,true); $("#explore").scrollIntoView({behavior:"smooth"}); }
+ else if(d.c){cat=d.c;chips();grid()}
+ else if(d.s!=null){const s=+d.s;asc=sk==s?!asc:(s>=0?false:true);sk=s;table()}
+ else if(d.d){document.querySelectorAll("[data-d]").forEach(b=>b.setAttribute("aria-pressed",b==t));$("#pairout").innerHTML=DISH[d.d].map(i=>`<button data-i="${i}" class="chip">${H[i][0]}</button>`).join("")}
+});
+$("#q").oninput=grid;
+strip();chips();grid();detail();table();dishes();
+</script>
+</body>
+</html>
